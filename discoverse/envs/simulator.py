@@ -15,18 +15,18 @@ from scipy.spatial.transform import Rotation
 from discoverse import DISCOVERSE_ASSETS_DIR
 from discoverse.utils import BaseConfig
 
-if sys.platform == "linux":
-    try:
-        from discoverse.gaussian_renderer import GSRenderer
-        from discoverse.gaussian_renderer.util_gau import multiple_quaternion_vector3d, multiple_quaternions
-        DISCOVERSE_GAUSSIAN_RENDERER = True
+# if sys.platform == "linux":
+#     try:
+#         from discoverse.gaussian_renderer import GSRenderer
+#         from discoverse.gaussian_renderer.util_gau import multiple_quaternion_vector3d, multiple_quaternions
+#         DISCOVERSE_GAUSSIAN_RENDERER = True
 
-    except ImportError:
-        traceback.print_exc()
-        print("Warning: gaussian_splatting renderer not found. Please install the required packages to use it.")
-        DISCOVERSE_GAUSSIAN_RENDERER = False
-else:
-    DISCOVERSE_GAUSSIAN_RENDERER = False
+#     except ImportError:
+#         traceback.print_exc()
+#         print("Warning: gaussian_splatting renderer not found. Please install the required packages to use it.")
+#         DISCOVERSE_GAUSSIAN_RENDERER = False
+# else:
+DISCOVERSE_GAUSSIAN_RENDERER = False
 
 def setRenderOptions(options):
     options.flags[mujoco.mjtVisFlag.mjVIS_TRANSPARENT] = True
